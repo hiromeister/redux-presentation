@@ -107,6 +107,17 @@ user/
     userReducer.js
 ```
 
+#### Avantages
+
+- Scalable
+- Navigation facile
+
+#### Inconvéniants
+
+
+
+## Les bases
+
 ### Les Actions
 
 Les `Actions` permets d'envoyer les informations au store.
@@ -144,8 +155,6 @@ une action types est simplement une constante comme valeur son nom, qu'on utilis
 ```javascript
 const ADD_TODO = "ADD_TODO";
 ```
-
-## Les bases
 
 ### Reducers
 
