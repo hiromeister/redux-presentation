@@ -61,10 +61,19 @@ reducers/
 routes.js
 ```
 
+#### Avantages
+* Unordered sub-list
+* Unordered sub-list
+* Unordered sub-list
+
+#### Inconvéniants
+* Unordered sub-list
+* Unordered sub-list
+* Unordered sub-list
+
 ### Domain-style
 Séparer les dossiers par feature ou domaine, éventuellement avec des sous-dossiers par type de fichier
-```
-app/
+```app/
     Header.js
     Sidebar.js
     App.js
@@ -94,3 +103,13 @@ user/
     UserAvatar.js
     userReducer.js
 ```
+
+#### Avantages
+* Unordered sub-list
+* Unordered sub-list
+* Unordered sub-list
+
+#### Inconvéniants
+* Unordered sub-list
+* Unordered sub-list
+* Unordered sub-list
