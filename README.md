@@ -1,6 +1,8 @@
-# Présentation de react-redux
+# Présentation de react-redu
 
-## Créer un projet react avec redux
+## Installer react-redux
+
+### Créer un projet react avec redux
 
 1.) Installer ```create-react-app```
 ```
@@ -22,7 +24,7 @@ npm install react-redux
 ```
 
 
-## Installer react-redux dans un projet react existant
+### Installer react-redux dans un projet react existant
 
 ```javacript
 cd my-app
