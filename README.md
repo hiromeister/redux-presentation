@@ -259,3 +259,96 @@ Maintenant que nous avons importé ces deux modules, on va pouvoir s'en servir :
 ```
 Et voila vous avez integrer le **store** à vôtre projet **React** !
 ### La vue
+C'est ici que nous allons rendre la vue sur nos composants et nos states.
+Prenons comme exemple ce code ci-dessous : 
+```js
+    import React, { Component } from 'react'
+
+    class TodoList extends Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                text: ''
+            }
+        }
+        
+        getTodo(e) {
+            // Nous stockons avec cette méthode la value de l'input dans un state que nous allons utiliser plus tard
+            this.setState({
+                text: e.target.value
+            })
+        }
+
+        render(){
+            return(
+                <div className="App">
+                <h1>Todo with Redux</h1>
+                <h3>Ajouter une todo</h3>
+                <input type="text" onChange={this.getTodo.bind(this)} />
+                <button onClick={() => { this.onAddTodo(this.state.text) }}>Ajouter la Todo</button>
+            </div>
+            )
+        }
+    }
+```
+Avec ce bout de code nous pouvons stocker dans le **state** "text" mais ce state sera disponible uniquement dans le composant même ou ses enfants.
+Mais je souhaiterai stocker "text" dans mon **store** de tel maniere a pouvoir l'utiliser dans d'autres composants par exemple. \
+Comment faire ? \
+Pour ça nous allons avoir besoin de la méthode **mapDispatchToProps** qui prendra en paramêtre **dispatch** et de **bindActionCreators** qui va me permettre de recuperer mes fonctions qui sont stocker dans les actions. \
+Voici comment faire :
+```js
+import React, { Component } from 'react'
+// j'importe mes fonctions que j'ai créé plus haut dans les actions
+import { deleteTodo, addTodo } from '../actions/action_todo'
+import { bindActionCreators } from 'redux';
+
+    class TodoList extends Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                text: ''
+            }
+        }
+        
+        getTodo(e) {
+            // Nous stockons avec cette méthode la value de l'input dans un state que nous allons utiliser plus tard
+            this.setState({
+                text: e.target.value
+            })
+        }
+        onAddTodo(text) {
+        // J'appelle ma méthode "addTodo" que je viens d'importer
+        this.props.addTodo(text)
+    }
+        render(){
+            return(
+                <div className="App">
+                <h1>Todo with Redux</h1>
+                <h3>Ajouter une todo</h3>
+                <input type="text" onChange={this.getTodo.bind(this)} />
+                <button onClick={() => { this.onAddTodo(this.state.text) }}>Ajouter la Todo</button>
+            </div>
+            )
+        }
+    }
+    function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        addTodo, deleteTodo
+    }, dispatch)
+}
+// Permet de connecter mon composant au mapDispatchToProps et mapStateToProps
+export default connect(mapDispatchToProps)(TodoList);
+```
+A présent nous rendons disponible nos fonctions fonction qui communiquerons avec les reducers. Mais il manque encore une derniere chose : \
+Rendre disponible notre **state** dans notre vue. \
+Il suffira d'ajouter :
+```js 
+// Cette fonction permettra à la vue d'avoir acces au state stocker dans le store
+function mapStateToProps(state) {
+    return { todoItem: state.todo }
+}
+// Il faudra l'ajouter à "connect"
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+
+```
+
