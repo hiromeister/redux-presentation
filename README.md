@@ -36,7 +36,7 @@ cd my-app
 
 ### Rails-style 
  Séparer les fichiers par nature : “actions”, “constants”, “reducers”, “containers”, and “components”
- ------
+ ---
 ```
 actions/
     CommandActions.js
@@ -74,7 +74,7 @@ routes.js
 
 ### Domain-style
 Séparer les dossiers par feature ou domaine, éventuellement avec des sous-dossiers par type de fichier
-------
+---
 ```app/
     Header.js
     Sidebar.js
