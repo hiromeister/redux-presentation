@@ -60,8 +60,11 @@ reducers/
     user.js
 routes.js
 ```
+#### Avantages
+* Bien pour petites applications
+
 #### Inconvéniants
-* Difficile d'ajouter de nouvelles actions, containers etc
+* Difficilement maintenable en cas de scale
 * Pas optimiser pour les gros projets
 
 ### Domain-style
