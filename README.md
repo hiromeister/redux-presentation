@@ -30,12 +30,65 @@ cd my-app
  npm install --save react-redux
 ```
 
+##  Comment ranger ses fichiers REDUX dans un projet REACT
 
+### Rails-style 
+ Séparer les fichiers par nature : “actions”, “constants”, “reducers”, “containers”, and “components”
+```
+actions/
+    CommandActions.js
+    UserActions.js
+components/
+    Header.js
+    Sidebar.js
+    Command.js
+    CommandList.js
+    CommandItem.js
+    CommandHelper.js
+    User.js
+    UserProfile.js
+    UserAvatar.js
+containers/
+    App.js
+    Command.js
+    User.js
+reducers/
+    index.js
+    command.js
+    user.js
+routes.js
+```
 
-## Les bases 
-
-### Actions
-
-### Reducers 
-
-### Store 
+### Domain-style
+Séparer les dossiers par feature ou domaine, éventuellement avec des sous-dossiers par type de fichier
+```
+app/
+    Header.js
+    Sidebar.js
+    App.js
+    reducers.js
+    routes.js
+command/
+    Command.js
+    CommandContainer.js
+    CommandActions.js
+    CommandList.js
+    CommandItem.js
+    CommandHelper.js
+    commandReducer.js
+product/
+    Product.js
+    ProductContainer.js
+    ProductActions.js
+    ProductList.js
+    ProductItem.js
+    ProductImage.js
+    productReducer.js
+user/
+    User.js
+    UserContainer.js
+    UserActions.js
+    UserProfile.js
+    UserAvatar.js
+    userReducer.js
+```
