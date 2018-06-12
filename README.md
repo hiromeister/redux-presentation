@@ -107,6 +107,8 @@ user/
     userReducer.js
 ```
 
+### Les Actions
+
 Les `Actions` permets d'envoyer les informations au store.
 il ne doit pas y avoir de logique metier c'est le travail du store.
 
