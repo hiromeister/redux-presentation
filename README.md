@@ -36,7 +36,6 @@ cd my-app
 
 ### Rails-style 
  Séparer les fichiers par nature : “actions”, “constants”, “reducers”, “containers”, and “components”
- ---
 ```
 actions/
     CommandActions.js
@@ -61,20 +60,12 @@ reducers/
     user.js
 routes.js
 ```
-
-#### Avantages
-* Unordered sub-list
-* Unordered sub-list
-* Unordered sub-list
-
 #### Inconvéniants
-* Unordered sub-list
-* Unordered sub-list
-* Unordered sub-list
+* Difficile d'ajouter de nouvelles actions, containers etc
+* Pas optimiser pour les gros projets
 
 ### Domain-style
 Séparer les dossiers par feature ou domaine, éventuellement avec des sous-dossiers par type de fichier
----
 ```app/
     Header.js
     Sidebar.js
@@ -107,11 +98,6 @@ user/
 ```
 
 #### Avantages
-* Unordered sub-list
-* Unordered sub-list
-* Unordered sub-list
+* Facilite l'ajout d'actions etc
+* Facilite la navigation dans de gros projets 
 
-#### Inconvéniants
-* Unordered sub-list
-* Unordered sub-list
-* Unordered sub-list
