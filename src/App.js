@@ -53,6 +53,7 @@ class App extends Component {
     );
   }
 }
+
 function mapStateToProps(state) {
   return { todoItem: state.todo };
 }
