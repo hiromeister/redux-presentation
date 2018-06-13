@@ -395,23 +395,27 @@ import { bindActionCreators } from 'redux';
         }
     }
     function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-        addTodo, deleteTodo
-    }, dispatch)
-}
+        return bindActionCreators({
+            addTodo, deleteTodo
+        }, dispatch)
+    }
 // Permet de connecter mon composant au mapDispatchToProps et mapStateToProps
 export default connect(mapDispatchToProps)(TodoList);
 ```
-A présent nous rendons disponible nos fonctions fonction qui communiquerons avec les reducers. Mais il manque encore une derniere chose : \
+A présent nous rendons disponible nos fonctions qui communiquerons avec les reducers. Mais il manque encore une derniere chose : \
 Rendre disponible notre **state** dans notre vue. \
 Il suffira d'ajouter :
 ```js 
+...
 // Cette fonction permettra à la vue d'avoir acces au state stocker dans le store
 function mapStateToProps(state) {
+//Si vous vous souvenez bien notre state est stocker dans un objet créé qu'on avait appelé **todo** dans le reducer
     return { todoItem: state.todo }
 }
 // Il faudra l'ajouter à "connect"
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
 
 ```
+
+Et voila grace au **mapStateToProps** vous allez pouvoir recuperer dans n'importe quel composant votre state. C'est là, la puissance de redux. Rendre disponible vos state partout dans votre application afin de s'en servir au besoin et les faire communiqués avec d'autres state !
 
